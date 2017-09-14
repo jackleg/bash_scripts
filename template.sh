@@ -18,6 +18,10 @@ warning() { echo "[WARNING] $@" | tee -a "$LOG_FILE" >&2 ; }
 error()   { echo "[ERROR]   $@" | tee -a "$LOG_FILE" >&2 ; }
 fatal()   { echo "[FATAL]   $@" | tee -a "$LOG_FILE" >&2 ; exit 1 ; }
 
+# 문자열을 지정한 문자로 join.
+# usage: join_by , A B C (output: A,B,C)
+join_by() { local IFS=$1; shift; echo "$*"; }
+
 cleanup() {
     # Remove temporary files
     # Restart services
