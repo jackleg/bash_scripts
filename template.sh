@@ -4,6 +4,8 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+# 현재 스크립트의 absolute path 구하기
+WORK_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
 # getopts with silent mode
 while getopts ":a:" opt; do
